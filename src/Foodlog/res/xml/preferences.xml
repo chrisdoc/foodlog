@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="@string/shared_pref">
+
+    <ListPreference
+        android:entries="@array/gender"
+        android:entryValues="@array/gender"
+        android:key="@string/gender_pref_key"
+        android:summary="@string/gender_pref_summary"
+        android:title="@string/gender_pref_name" />
+
+    <EditTextPreference
+        android:key="@string/age_pref_key"
+        android:numeric="integer"
+        android:title="@string/age_pref_name" android:summary="@string/age_pref_summary"/>
+    <EditTextPreference
+        android:key="@string/height_pref_key"
+        android:numeric="integer"
+        android:title="@string/height_pref_name" android:summary="@string/height_pref_summary"/>
+    <EditTextPreference
+        android:key="@string/weight_pref_key"
+        android:numeric="integer"
+        android:title="@string/weight_pref_name" android:summary="@string/weight_pref_summary"/>
+
+</PreferenceScreen>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout android:id="@+id/nutrition_row_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip">
+ 
+        <View
+            android:id="@+id/nutrition_row_color"
+            android:layout_width="20dip"
+            android:layout_height="35dip"
+            android:background="#FF00FF"/>
+ 
+    </LinearLayout>
+<TextView
+        android:id="@+id/nutrition_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nutrition_row_thumb"
+        android:layout_toRightOf="@+id/nutrition_row_thumb"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Fat"/>
+<TextView
+        android:id="@+id/nutrition_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/nutrition_row_thumb"
+        android:layout_below="@id/nutrition_name"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="10g"/>
+</RelativeLayout>

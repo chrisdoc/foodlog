@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
+    android:layout_marginTop="15dp" >
+
+    <LinearLayout
+        android:id="@+id/diarygroup_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/diarygroup_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MO 31.3.2013"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/diarygroup_kcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:gravity="right"
+            android:text="1354 kcal"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diarygroup_text_layout"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <View
+            android:id="@+id/diarygroup_view_breakfast"
+            android:layout_width="2dip"
+            android:layout_height="20dip"
+            android:layout_weight="0.5"
+            android:background="@color/color_breakfast" />
+
+        <View
+            android:id="@+id/diarygroup_view_lunch"
+            android:layout_width="5dip"
+            android:layout_height="20dip"
+            android:layout_weight="0.25"
+            android:background="@color/color_lunch" />
+
+        <View
+            android:id="@+id/diarygroup_view_diner"
+            android:layout_width="5dip"
+            android:layout_height="20dip"
+            android:layout_weight="0.25"
+            android:background="@color/color_diner" />
+    </LinearLayout>
+
+</RelativeLayout>

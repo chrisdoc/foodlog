@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical" >
+<ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+    <LinearLayout 
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+                  <!-- Content here -->
+           
+    <RelativeLayout
+        android:id="@+id/info_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/search_detail_thumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dip"
+            android:padding="3dip" >
+
+            <ImageView
+                android:id="@+id/search_detail_image"
+                android:layout_width="120dip"
+                android:layout_height="120dip"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/btn_star" />
+        </LinearLayout>
+        <!-- Title Of Song -->
+
+        <TextView
+            android:id="@+id/search_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/search_detail_thumb"
+            android:layout_toRightOf="@+id/search_detail_thumb"
+            android:text="This is a long fruit name"
+            android:textColor="#040404"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+      
+            android:typeface="sans" />
+
+        <!-- Artist Name -->
+
+        <TextView
+            android:id="@+id/search_detail_subtitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_detail_title"
+            android:layout_marginTop="1dip"
+            android:layout_toRightOf="@+id/search_detail_thumb"
+            android:text="Fruit subtitlee"
+            android:textColor="#343434"
+            android:textSize="16sp" />
+           <TextView
+            android:id="@+id/search_detail_calorie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_detail_subtitle"
+            android:layout_marginTop="1dip"
+            android:layout_toRightOf="@+id/search_detail_thumb"
+            android:text="100 gram has 100 kCal"
+            android:textColor="#343434"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nutrition_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/info_detail"
+        android:layout_marginTop="5dp" >
+
+        <WebView
+            android:id="@+id/pieWebView"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_centerInParent="true"
+             />
+
+        <ListView
+            android:id="@+id/nutrutionList"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/pieWebView"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/pieWebView" >
+        </ListView>
+    </RelativeLayout>
+	<RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/nutrition_detail"
+        android:layout_marginTop="10dp" >
+
+		<Button
+		    android:id="@+id/add_diary_button"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="10dp"
+		    android:drawableLeft="@drawable/addbutton"
+		    android:text="@string/add_food_to_diary" />
+	    
+	</RelativeLayout>
+	
+	
+ </LinearLayout>
+	</ScrollView>
+
+</RelativeLayout>
