@@ -25,7 +25,7 @@ public class FoodLog extends Activity implements OnClickListener {
         btnSettings = (Button) findViewById(R.id.btn_settings);
         
         btnHistory.setOnClickListener(this);
-        btnLookup.setOnClickListener(this);
+		btnLookup.setOnClickListener(this);
         btnNewMeal.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
     }

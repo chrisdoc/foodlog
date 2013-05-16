@@ -1,0 +1,8 @@
+INDEX VERSION 1.126+/Users/ch/Dev/foodlog/src/.metadata/.plugins/org.eclipse.jdt.core
+1146446656.index
+2968676434.index
+3744387.index
+345429545.index
+2556885455.index
+2427634542.index
+3784008157.index
