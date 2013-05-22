@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+    <string-array name="mealtime">
+        <item>breakfast</item>
+        <item>lunch</item>
+        <item>diner</item>
+    </string-array>
+
+    <color name="color_bg">#D6D5D1</color>
+    <color name="color_blue">#5F89AB</color>
+    <color name="color_breakfast">#D45354</color>
+    <color name="color_brown">#DEA96B</color>
+    <color name="color_carb">#3E454C</color>
+    <color name="color_dark_green">#5D7466</color>
+    <color name="color_df">#E80C7A</color>
+    <color name="color_diner">#2FCAD8</color>
+    <color name="color_fat">#D45354</color>
+    <color name="color_grey">#BCBABC</color>
+    <color name="color_light_green">#8BC79D</color>
+    <color name="color_lunch">#A9DC3A</color>
+    <color name="color_occa">#E39C66</color>
+    <color name="color_protein">#A9DC3A</color>
+    <color name="color_red">#F76966</color>
+    <color name="color_rosa">#FDA9C7</color>
+    <color name="color_splash">#00ADEF</color>
+    <color name="color_sugar">#2FCAD8</color>
+    <color name="color_yellow">#FDDB6F</color>
+
+    <declare-styleable name="NumberPickerDialogPreference">
+        <attr name="android:max" />
+        <attr name="min" format="integer" />
+    </declare-styleable>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <integer name="search_field_lines">1</integer>
+
+    <string name="action_settings">Settings</string>
+    <string name="add_food_to_diary">add to diary</string>
+    <string name="add_food_to_meal">add ingredient to meal</string>
+    <string name="age_pref_key">age</string>
+    <string name="age_pref_name">Age</string>
+    <string name="age_pref_summary">Your age in years</string>
+    <string name="api_key">HREPF3HUMKOUKKZTAK647</string>
+    <string name="app_name">foodLog</string>
+    <string name="blah"></string>
+    <string name="breakfast">breakfast</string>
+    <string name="btn_help">Help</string>
+    <string name="btn_history">History</string>
+    <string name="btn_lookup">Lookup</string>
+    <string name="btn_new_meal">New Meal</string>
+    <string name="btn_settings">Settings</string>
+    <string name="camera_description">Barcode scanner</string>
+    <string name="consumed_string">% of daily limit</string>
+    <string name="contact">For further information please contact us at foodlogger@fh-hagenberg.at or look up our website foodlogger.fh-hagenberg.at</string>
+    <string name="daily_kcal_pref_key">daily_kcal_pref_value</string>
+    <string name="daily_kcal_pref_name">Daily kalories</string>
+    <string name="daily_kcal_pref_summary">Your maximun daily intake</string>
+    <string name="daily_meal_limit">You are going to exceed your daily limit! Are you sure you want to continue?</string>
+    <string name="detial_has_kcal">%1$d %2$s has %1$d kCal</string>
+    <string name="diner">dinner</string>
+    <string name="exceed_meal_limit">You are going to exceed your meal limit! Are you sure you want to continue?</string>
+    <string name="gender_pref_key">gender</string>
+    <string name="gender_pref_name">Gender</string>
+    <string name="gender_pref_summary">Your gender</string>
+    <string name="height_pref_key">height</string>
+    <string name="height_pref_name">Height</string>
+    <string name="height_pref_summary">Your height in centimeter</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="help_history">Check out the history to see how your calorie consumption is developing. Get detailed information about the meals you consumed.</string>
+    <string name="help_search">Use the search function to look up the food database for products by either textual search or by scanning the products barcode.</string>
+    <string name="help_settings">Enter you personal information to use the calculated basal metabolic rate as daily calorie limit.</string>
+    <string name="kcal_pref_key">kcal</string>
+    <string name="lookup_serch_field_text">Search</string>
+    <string name="lunch">lunch</string>
+    <string name="meal_kcal_pref_key">meal_kcal_pref_value</string>
+    <string name="meal_kcal_pref_name">kCal per Meal</string>
+    <string name="meal_kcal_pref_summary">Your maximum kCal intake per meal</string>
+    <string name="pick_mealtime">Pick a mealtime</string>
+    <string name="save_meal">save meal</string>
+    <string name="shared_pref">shared_pref</string>
+    <string name="time_change_text">Change time</string>
+    <string name="title_activity_new_meal">New meal</string>
+    <string name="weight_pref_key">weight</string>
+    <string name="weight_pref_name">Weight</string>
+    <string name="weight_pref_summary">Your weight in kilograms</string>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="DashboardButton">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff29549f</item>
+        <item name="android:background">@null</item>
+    </style>
+
+</resources>

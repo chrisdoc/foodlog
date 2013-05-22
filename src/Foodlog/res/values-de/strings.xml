@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Essbuch</string>
+    <string name="app_name">Ess-Tagebuch</string>
     <string name="action_settings">Einstellungen</string>
     <string name="gender_pref_name">Geschlecht</string>
     <string name="gender_pref_key">gender</string>
@@ -9,7 +9,7 @@
     <string name="gender_pref_summary">Ihr Geschlecht</string>
     <string name="age_pref_name">Alter</string>
     <string name="age_pref_key">age</string>
-    <string name="age_pref_summary">Ihr Alter</string>
+    <string name="age_pref_summary">Ihr Alter in Jahren</string>
     <string name="height_pref_name">Körpergröße</string>
     <string name="height_pref_key">height</string>
     <string name="height_pref_summary">Ihre Körpergröße in cm</string>
@@ -32,5 +32,14 @@
     <string name="breakfast">Frühstück</string>
     <string name="lunch">Mittags</string>
     <string name="diner">Abends</string>
+    <string name="exceed_meal_limit">Sie überschreiten Ihr tägliches Kalorien-Limit! Wollen Sie trotzdem fortfahren?</string>
+    <string name="daily_meal_limit">Sie überschreiten Ihr Kalorien-Limit pro Mahlzeit! Wollen Sie trotzdem fortfahren?</string>
+    <string name="time_change_text">Zeitpunkt ändern</string>
+    <string name="consumed_string">% Ihres Tagesbedarfs</string>
+    <string name="help_history">Nutzen sie den Verlauf um die Entwicklung Ihres Kalorienumsatzes zu überwachen. Zusätzlich erhalten Sie detaillierte Informationen zu den konsumierten Produkten.s</string>
+    <string name="help_search">Benutzen Sie die Suchfunktion um die Lebensmitteldatenbank zu durchsuchen. Sie können dazu entweder eine Textsuche starten oder einfach den Produktbarcode einscannen.</string>
+    <string name="help_settings">Geben Sie Ihre persönlichen Informationen ein um sich automatisch den täglichen Grundumsatz berechnen zu lassen.</string>
+    <string name="btn_help">Hilfe</string>
+    <string name="contact">Für weitere Fragen wenden Sie sich bitte an foodlogger@fh-hagenberg.at oder besuchen Sie unsere Homepage foodlogger.fh-hagenberg.at</string>
 
 </resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+ <LinearLayout
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content" >
+
+    <AutoCompleteTextView
+        android:id="@+id/searchField"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:completionThreshold="2"
+        android:ems="10"
+        android:hint="@string/lookup_serch_field_text"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:lines="@integer/search_field_lines"
+        android:textSize="22sp" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+
+       <ImageButton
+           android:id="@+id/scanButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_toRightOf="@id/searchField"
+           android:contentDescription="@string/camera_description"
+           android:src="@android:drawable/ic_menu_camera" />
+
+</LinearLayout>
+    <ListView
+        android:id="@+id/searchResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

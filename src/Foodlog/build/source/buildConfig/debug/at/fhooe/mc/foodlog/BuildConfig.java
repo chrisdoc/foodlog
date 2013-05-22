@@ -1,0 +1,7 @@
+/** Automatically generated file. DO NOT MODIFY */
+package at.fhooe.mc.foodlog;
+
+public final class BuildConfig {
+    public final static boolean DEBUG = true;
+
+}

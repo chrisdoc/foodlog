@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="gender">
+        <item>Mann</item>
+        <item>Frau</item>
+    </string-array>
+    <string-array name="mealtime">
+        <item>Frühstück</item>
+        <item>Mittagessen</item>
+        <item>Abendessen</item>
+    </string-array>
+
+    <string name="action_settings">Einstellungen</string>
+    <string name="add_food_to_diary">zum Tagebuch hinzufügen</string>
+    <string name="add_food_to_meal">Zutat hinzufügen</string>
+    <string name="age_pref_key">age</string>
+    <string name="age_pref_name">Alter</string>
+    <string name="age_pref_summary">Ihr Alter in Jahren</string>
+    <string name="api_key">HREPF3HUMKOUKKZTAK647</string>
+    <string name="app_name">Ess-Tagebuch</string>
+    <string name="breakfast">Frühstück</string>
+    <string name="btn_help">Hilfe</string>
+    <string name="btn_history">Verlauf</string>
+    <string name="btn_lookup">Suche</string>
+    <string name="btn_new_meal">Neues Menü</string>
+    <string name="btn_settings">Einstellungen</string>
+    <string name="camera_description">Barcode scanner</string>
+    <string name="consumed_string">% Ihres Tagesbedarfs</string>
+    <string name="contact">Für weitere Fragen wenden Sie sich bitte an foodlogger@fh-hagenberg.at oder besuchen Sie unsere Homepage foodlogger.fh-hagenberg.at</string>
+    <string name="daily_meal_limit">Sie überschreiten Ihr Kalorien-Limit pro Mahlzeit! Wollen Sie trotzdem fortfahren?</string>
+    <string name="diner">Abends</string>
+    <string name="exceed_meal_limit">Sie überschreiten Ihr tägliches Kalorien-Limit! Wollen Sie trotzdem fortfahren?</string>
+    <string name="gender_pref_key">gender</string>
+    <string name="gender_pref_name">Geschlecht</string>
+    <string name="gender_pref_summary">Ihr Geschlecht</string>
+    <string name="height_pref_key">height</string>
+    <string name="height_pref_name">Körpergröße</string>
+    <string name="height_pref_summary">Ihre Körpergröße in cm</string>
+    <string name="help_history">Nutzen sie den Verlauf um die Entwicklung Ihres Kalorienumsatzes zu überwachen. Zusätzlich erhalten Sie detaillierte Informationen zu den konsumierten Produkten.s</string>
+    <string name="help_search">Benutzen Sie die Suchfunktion um die Lebensmitteldatenbank zu durchsuchen. Sie können dazu entweder eine Textsuche starten oder einfach den Produktbarcode einscannen.</string>
+    <string name="help_settings">Geben Sie Ihre persönlichen Informationen ein um sich automatisch den täglichen Grundumsatz berechnen zu lassen.</string>
+    <string name="kcal_pref_key">kcal</string>
+    <string name="lookup_serch_field_text">Search</string>
+    <string name="lunch">Mittags</string>
+    <string name="pick_mealtime">Wählen Sie eine Mahlzeit</string>
+    <string name="save_meal">Menü speichern</string>
+    <string name="shared_pref">shared_pref</string>
+    <string name="time_change_text">Zeitpunkt ändern</string>
+    <string name="title_activity_new_meal">neues Menü</string>
+    <string name="weight_pref_key">weight</string>
+    <string name="weight_pref_name">Gewicht</string>
+    <string name="weight_pref_summary">Ihr Gewicht in kg</string>
+
+</resources>

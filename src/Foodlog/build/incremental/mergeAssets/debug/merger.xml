@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/ch/AndroidStudio/foodlog/src/Foodlog/assets" >
+            <file
+                name="Chart.js"
+                path="/Users/ch/AndroidStudio/foodlog/src/Foodlog/assets/Chart.js" />
+            <file
+                name="pie.html"
+                path="/Users/ch/AndroidStudio/foodlog/src/Foodlog/assets/pie.html" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/ch/AndroidStudio/foodlog/src/Foodlog/src/debug/assets" />
+    </dataSet>
+
+</merger>
