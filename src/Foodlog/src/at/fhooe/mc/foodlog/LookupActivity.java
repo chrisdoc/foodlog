@@ -21,6 +21,8 @@ import at.fhooe.mc.foodlog.model.DiaryDataSource;
 import at.fhooe.mc.foodlog.model.Item;
 import at.fhooe.mc.foodlog.model.PreviouslySearchedDataSource;
 import at.fhooe.mc.foodlog.model.SearchResult;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.mirasense.demos.ScanditSDKSampleBarcodeActivity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.simpleframework.xml.Serializer;
@@ -126,8 +128,10 @@ public class LookupActivity extends FragmentActivity {
     }
 
     private void scanProduct() {
-        startActivityForResult(new Intent(LookupActivity.this,
-                ScanditSDKSampleBarcodeActivity.class), SCAN_REQUEST_CODE);
+      //  startActivityForResult(new Intent(LookupActivity.this,
+     //           ScanditSDKSampleBarcodeActivity.class), SCAN_REQUEST_CODE);
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.initiateScan();
 
     }
 
@@ -146,10 +150,16 @@ public class LookupActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == SCAN_REQUEST_CODE) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null) {
+            // handle scan result
+
+            search(scanResult.getContents());
+        }
+        else if (requestCode == SCAN_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                String ean = data.getStringExtra("EAN");
+                String ean = intent.getStringExtra("EAN");
                 search(ean);
                 Log.d("kieslich", ean);
                 // use 'myValue' return value here
