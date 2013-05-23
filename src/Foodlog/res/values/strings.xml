@@ -44,11 +44,12 @@
     <string name="daily_meal_limit">You are going to exceed your daily limit! Are you sure you want to continue?</string>
     <string name="time_change_text">Change time</string>
     <string name="consumed_string">% of daily limit</string>
-    <string name="detial_has_kcal">%1$d %2$s has %1$d kCal</string>
+    <string name="detial_has_kcal">%1$d %2$s has %3$d kCal</string>
     <string name="help_history">Check out the history to see how your calorie consumption is developing. Get detailed information about the meals you consumed.</string>
     <string name="help_search">Use the search function to look up the food database for products by either textual search or by scanning the products barcode.</string>
     <string name="help_settings">Enter you personal information to use the calculated basal metabolic rate as daily calorie limit.</string>
     <string name="btn_help">Help</string>
     <string name="contact">For further information please contact us at foodlogger@fh-hagenberg.at or look up our website foodlogger.fh-hagenberg.at</string>
+    <string name="no_product_found">Couldn\'t find a product</string>
 
 </resources>

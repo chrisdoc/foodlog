@@ -260,7 +260,7 @@ public class DiaryDayActivity extends FragmentActivity {
                 vi.setBackgroundColor(Color.WHITE);
             }
 
-            kcal.setText(temp_kcal + " kCal");
+            kcal.setText(item.getAmount()+" "+item.getItem().getUnit()+", "+temp_kcal + " kCal");
 
             return vi;
         }

@@ -200,14 +200,15 @@ containing a value of this type.
         public static final int meal_kcal_pref_key=0x7f090026;
         public static final int meal_kcal_pref_name=0x7f090027;
         public static final int meal_kcal_pref_summary=0x7f090028;
-        public static final int pick_mealtime=0x7f090029;
-        public static final int save_meal=0x7f09002a;
-        public static final int shared_pref=0x7f09002b;
-        public static final int time_change_text=0x7f09002c;
-        public static final int title_activity_new_meal=0x7f09002d;
-        public static final int weight_pref_key=0x7f09002e;
-        public static final int weight_pref_name=0x7f09002f;
-        public static final int weight_pref_summary=0x7f090030;
+        public static final int no_product_found=0x7f090029;
+        public static final int pick_mealtime=0x7f09002a;
+        public static final int save_meal=0x7f09002b;
+        public static final int shared_pref=0x7f09002c;
+        public static final int time_change_text=0x7f09002d;
+        public static final int title_activity_new_meal=0x7f09002e;
+        public static final int weight_pref_key=0x7f09002f;
+        public static final int weight_pref_name=0x7f090030;
+        public static final int weight_pref_summary=0x7f090031;
     }
     public static final class style {
         /** 

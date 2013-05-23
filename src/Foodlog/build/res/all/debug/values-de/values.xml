@@ -43,6 +43,7 @@
     <string name="kcal_pref_key">kcal</string>
     <string name="lookup_serch_field_text">Search</string>
     <string name="lunch">Mittags</string>
+    <string name="no_product_found">Es wurde kein Produkt gefunden</string>
     <string name="pick_mealtime">Wählen Sie eine Mahlzeit</string>
     <string name="save_meal">Menü speichern</string>
     <string name="shared_pref">shared_pref</string>

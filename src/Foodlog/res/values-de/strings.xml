@@ -24,6 +24,7 @@
     <string name="btn_lookup">Suche</string>
     <string name="btn_new_meal">Neues Menü</string>
     <string name="btn_history">Verlauf</string>
+    <string name="detial_has_kcal">%1$d %2$s hat %3$d kCal</string>
     <string name="btn_settings">Einstellungen</string>
     <string name="add_food_to_diary">zum Tagebuch hinzufügen</string>
     <string name="title_activity_new_meal">neues Menü</string>
@@ -41,5 +42,6 @@
     <string name="help_settings">Geben Sie Ihre persönlichen Informationen ein um sich automatisch den täglichen Grundumsatz berechnen zu lassen.</string>
     <string name="btn_help">Hilfe</string>
     <string name="contact">Für weitere Fragen wenden Sie sich bitte an foodlogger@fh-hagenberg.at oder besuchen Sie unsere Homepage foodlogger.fh-hagenberg.at</string>
+    <string name="no_product_found">Es wurde kein Produkt gefunden</string>
 
 </resources>

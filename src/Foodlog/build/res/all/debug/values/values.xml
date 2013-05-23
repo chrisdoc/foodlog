@@ -63,7 +63,7 @@
     <string name="daily_kcal_pref_name">Daily kalories</string>
     <string name="daily_kcal_pref_summary">Your maximun daily intake</string>
     <string name="daily_meal_limit">You are going to exceed your daily limit! Are you sure you want to continue?</string>
-    <string name="detial_has_kcal">%1$d %2$s has %1$d kCal</string>
+    <string name="detial_has_kcal">%1$d %2$s has %3$d kCal</string>
     <string name="diner">dinner</string>
     <string name="exceed_meal_limit">You are going to exceed your meal limit! Are you sure you want to continue?</string>
     <string name="gender_pref_key">gender</string>
@@ -82,6 +82,7 @@
     <string name="meal_kcal_pref_key">meal_kcal_pref_value</string>
     <string name="meal_kcal_pref_name">kCal per Meal</string>
     <string name="meal_kcal_pref_summary">Your maximum kCal intake per meal</string>
+    <string name="no_product_found">Couldn\'t find a product</string>
     <string name="pick_mealtime">Pick a mealtime</string>
     <string name="save_meal">save meal</string>
     <string name="shared_pref">shared_pref</string>

@@ -48,7 +48,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/res" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/resources" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/libs/armeabi" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.settings" />
       <excludeFolder url="file://$MODULE_DIR$/build/apk" />
@@ -68,6 +68,9 @@
     <orderEntry type="library" name="android-support-v4" level="project" />
     <orderEntry type="library" name="scanditsdk-barcodepicker-android-3.3.1 (2)" level="project" />
     <orderEntry type="library" name="simple-xml-2.7 (2)" level="project" />
+    <orderEntry type="library" name="scanditsdk-barcodepicker-android-3.3.1" level="project" />
+    <orderEntry type="library" name="simple-xml-2.7" level="project" />
+    <orderEntry type="library" name="android" level="project" />
   </component>
 </module>
 
