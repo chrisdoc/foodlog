@@ -5,7 +5,9 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ * A container class which is used for deserialization
+ */
 @Root(strict = false)
 public class SearchResult implements Serializable {
     /**

@@ -5,6 +5,9 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
+/**
+ * A container class which is used for deserializing of the XML
+ */
 @Root(strict = false)
 public class Result implements Serializable {
 

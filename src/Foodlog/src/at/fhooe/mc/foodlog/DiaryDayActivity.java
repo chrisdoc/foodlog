@@ -26,56 +26,72 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * This Activity is used to display information for one day in the dairy. The user can see how many calories he spent on which meal. This information is additionally visualized in a PIE chart
+ */
 public class DiaryDayActivity extends FragmentActivity {
-    DiaryGroup diaryGroup;
+    /**
+     * the DiaryGroup for this Day, holds all the meals for one day
+     */
+    private DiaryGroup diaryGroup;
+    /**
+     * A dateformatter to covert a Date into the following representation dd.MM.yyyy, 12.06.2013
+     */
     private SimpleDateFormat dateFormat = new SimpleDateFormat(
             "dd.MM.yyyy", Locale.getDefault());
+    /**
+     * A dateformatter to covert a Date into the following representation HH:mm, 23:59
+     */
     private SimpleDateFormat timeFormat = new SimpleDateFormat(
             "HH:mm", Locale.getDefault());
-    int kcal = 0;
-    int kcal_breakfast = 0;
-    int kcal_lunch = 0;
-    int kcal_diner = 0;
-    ListView itemListView;
-    InformationAdapter informationAdapter;
-    DiaryItemAdapter diaryItemAdapter;
-    String colors[] = new String[]{"#7EA629", "#D93030", "#54BF83", "#1763A6", "#74002B", "#419CA6", "#F29A2E", "#04BFAD", "#FF3D7F", "#DAD8A7", "#FF9E9D"};
+    /**
+     * used to count all the calories for one day
+     */
+    private int kcal = 0;
+    /**
+     * A ListView witch is used to display all the meal for one day
+     */
+    private ListView itemListView;
+    /**
+     * An Adapter for the itemListView, manages the items of the itemListView
+     */
+    private DiaryItemAdapter diaryItemAdapter;
+    /**
+     * An array with colors for the pie chart
+     */
+    private String colors[] = new String[]{"#7EA629", "#D93030", "#54BF83", "#1763A6", "#74002B", "#419CA6", "#F29A2E", "#04BFAD", "#FF3D7F", "#DAD8A7", "#FF9E9D"};
 
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstance);
+        //sets the layout
         setContentView(R.layout.diary_day_activity);
+        //load the diarygroup from the intent
         diaryGroup = (DiaryGroup) getIntent().getSerializableExtra("diarygroup");
 
-
+        //checks if diarygroup is valid
         if (diaryGroup != null) {
+            //loads the views from the layout
             TextView dateView = (TextView) findViewById(R.id.diary_day_date);
             dateView.setText(dateFormat.format(diaryGroup.getDate()));
             TextView kcalView = (TextView) findViewById(R.id.diary_day_kcal);
             TextView consumedView = (TextView) findViewById(R.id.diary_day_percent);
             int temp_kcal = 0;
+            //calculates the overall calories of all meals
             for (Diary d : diaryGroup.getDiaries()) {
                 temp_kcal = d.getItem().getData().getKcal()
                         * d.getAmount()
                         / d.getItem().getData().getAmount();
                 kcal += temp_kcal;
-                switch (d.getMealtime()) {
-                    case 0:
-                        kcal_breakfast += temp_kcal;
-                        break;
-                    case 1:
-                        kcal_lunch += temp_kcal;
-                        break;
-                    case 2:
-                        kcal_diner += temp_kcal;
-                        break;
-                }
+
 
             }
+            //gets the user daily meal limit
             SharedPreferences pref = getSharedPreferences(getString(R.string.shared_pref), MODE_PRIVATE);
             int kcal_all = pref.getInt(getString(R.string.daily_kcal_pref_key), 2000);
+            //calculates how many calories the user has consumed
             int consumed = (int) (kcal * 100.0 / kcal_all);
             consumedView.setText(consumed + getString(R.string.consumed_string));
             if (consumed >= 100) {
@@ -85,6 +101,7 @@ public class DiaryDayActivity extends FragmentActivity {
             kcalView.setText(kcal + " kcal");
         }
 
+        //creates a pie chart which displays all the meals
         WebView pie = (WebView) findViewById(R.id.diary_day_pie);
         pie.setBackgroundColor(0x00000000);
         pie.getSettings().setUseWideViewPort(false);
@@ -126,82 +143,26 @@ public class DiaryDayActivity extends FragmentActivity {
                 40, 1 - consumed);
         calories_left.setLayoutParams(param);
 
-        ArrayList<Information> information = new ArrayList<Information>();
-        Information info = new Information();
-        info.setTilte(getString(R.string.breakfast));
-        info.setSubtitle(String.format("%d kcal", kcal_breakfast));
-        info.setColor(Color.parseColor(getString(R.color.color_breakfast)));
-        information.add(info);
-        info = new Information();
-        info.setTilte(getString(R.string.lunch));
-        info.setSubtitle(String.format("%d kcal", kcal_lunch));
-        info.setColor(Color.parseColor(getString(R.color.color_lunch)));
-        information.add(info);
-        info = new Information();
-        info.setTilte(getString(R.string.diner));
-        info.setSubtitle(String.format("%d kcal", kcal_diner));
-        info.setColor(Color.parseColor(getString(R.color.color_diner)));
-        information.add(info);
-        //informationAdapter = new InformationAdapter(this, R.layout.information_row, information);
-        //ListView informationView = (ListView) findViewById(R.id.diary_dayList);
-        //informationView.setAdapter(informationAdapter);
 
+        //creates the diaryItemAdapter, sets the layout of the listView and the listView items
         diaryItemAdapter = new DiaryItemAdapter(this, R.layout.diary_item_row, diaryGroup.getDiaries());
         itemListView = (ListView) findViewById(R.id.diary_item_list);
+        //sets the adapter for the listview
         itemListView.setAdapter(diaryItemAdapter);
     }
 
+    /**
+     * Generates a JSON String which is used by the Webview to display the pie chart
+     *
+     * @return a JSON String with all the meal information
+     */
     public String getJSON() {
         JSONArray array = new JSONArray();
-        // fat
-
-        JSONObject breakfast = new JSONObject();
-
-        try {
-            breakfast.put("value", kcal_breakfast);
-            breakfast.put("color", "#D45354");
-            breakfast.put("label", getString(R.string.breakfast));
-            breakfast.put("labelColor", "#444");
-            breakfast.put("labelFontSize", "1.2em");
-
-        } catch (JSONException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-        JSONObject lunch = new JSONObject();
-        try {
-            lunch.put("value", kcal_lunch);
-            lunch.put("color", "#A9DC3A");
-            lunch.put("label", getString(R.string.lunch));
-            lunch.put("labelColor", "#444");
-            lunch.put("labelFontSize", "1.2em");
-
-        } catch (JSONException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-
-        JSONObject diner = new JSONObject();
-        try {
-            diner.put("value", kcal_diner);
-            diner.put("color", "#2FCAD8");
-            diner.put("label", getString(R.string.diner));
-            diner.put("labelColor", "#444");
-            diner.put("labelFontSize", "1.2em");
-
-        } catch (JSONException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        // array.put(breakfast);
-        //array.put(lunch);
-        //array.put(diner);
         JSONObject obj = null;
         int temp_kcal = 0;
 
-        // String colors[]=new String[]{"#7EA629","#D93030","#54BF83","#1763A6","#74002B","#419CA6","#F29A2E","#04BFAD","#FF3D7F","#DAD8A7","#FF9E9D"};
         int i = 0;
+        //builds the JSON Array
         for (Diary d : diaryGroup.getDiaries()) {
             obj = new JSONObject();
             temp_kcal = d.getItem().getData().getKcal()
@@ -227,43 +188,34 @@ public class DiaryDayActivity extends FragmentActivity {
         return array.toString();
     }
 
-
-    public class Information {
-        String tilte;
-        String subtitle;
-        int color;
-
-        public String getTilte() {
-            return tilte;
-        }
-
-        public void setTilte(String tilte) {
-            this.tilte = tilte;
-        }
-
-        public String getSubtitle() {
-            return subtitle;
-        }
-
-        public void setSubtitle(String subtitle) {
-            this.subtitle = subtitle;
-        }
-
-        public int getColor() {
-            return color;
-        }
-
-        public void setColor(int color) {
-            this.color = color;
-        }
-    }
-
+    /**
+     * An adapter for the ListView which handles the ListView items and sets its appearance
+     */
     public class DiaryItemAdapter extends ArrayAdapter<Diary> {
+        /**
+         * the context of the activity
+         */
         private Context context;
+        /**
+         * the resourcedid of the layout which is used
+         */
         private int layoutResourceId;
+        /**
+         * An ArrayList with all the diary items
+         */
         private ArrayList<Diary> diary;
+        /**
+         * a LayoutInflater which is used to instantiate the Layout
+         */
         private LayoutInflater inflater;
 
+        /**
+         * Constructor to instantiate a new DiaryItemAdapter
+         *
+         * @param context          the context of the Actiivty
+         * @param layoutResourceId the id of the used Layout
+         * @param diary            An ArrayList with diary items
+         */
         public DiaryItemAdapter(Context context, int layoutResourceId, ArrayList<Diary> diary) {
             super(context, layoutResourceId, diary);
             this.context = context;
@@ -276,11 +228,10 @@ public class DiaryDayActivity extends FragmentActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View vi = convertView;
 
-            // LayoutInflater inflater = ((Activity)
-            // context).getLayoutInflater();
+            //loads the view if it is not already set
             if (convertView == null)
                 vi = inflater.inflate(layoutResourceId, null);
-
+            //gets the Views from the Layout
             TextView name = (TextView) vi.findViewById(R.id.diary_item_name);
             TextView kcal = (TextView) vi.findViewById(R.id.diary_item_kcal);
             TextView date = (TextView) vi.findViewById(R.id.diary_item_date);
@@ -293,15 +244,16 @@ public class DiaryDayActivity extends FragmentActivity {
             Diary item = diary.get(position);
 
             imageLoader.DisplayImage(item.getItem().getThumbsrc(), img);
-
+            //calculates the calories for one meal
             int temp_kcal = item.getItem().getData().getKcal()
                     * item.getAmount()
                     / item.getItem().getData().getAmount();
 
+            //sets the text of the items
             name.setText(item.getItem().getDescription().getName());
             date.setText(timeFormat.format(item.getDate()));
 
-
+            //alternating background color
             if (position % 2 == 0) {
                 vi.setBackgroundColor(context.getResources().getColor(R.color.color_bg));
             } else {
@@ -314,56 +266,5 @@ public class DiaryDayActivity extends FragmentActivity {
         }
     }
 
-    public class InformationAdapter extends ArrayAdapter<Information> {
-
-        private Context context;
-        private int layoutResourceId;
-        private ArrayList<Information> data;
-        private LayoutInflater inflater = null;
-
-        public InformationAdapter(Context context, int layoutResourceId,
-                                  ArrayList<Information> nutritions) {
-            super(context, layoutResourceId, nutritions);
-            this.layoutResourceId = layoutResourceId;
-            this.context = context;
-            this.data = nutritions;
-
-            inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            View vi = convertView;
-
-            // LayoutInflater inflater = ((Activity)
-            // context).getLayoutInflater();
-            if (convertView == null)
-                vi = inflater.inflate(layoutResourceId, null);
-
-            TextView name = (TextView) vi.findViewById(R.id.information_title); // title
-            TextView value = (TextView) vi.findViewById(R.id.information_subtitle); // artist
-            // name
-            View view = (View) vi.findViewById(R.id.information_row_color); // thumb
-            // image
-
-            Information item = data.get(position);
-            // Setting all values in listview
-            name.setText(item.getTilte());
-            value.setText(item.getSubtitle());
-
-            if (position % 2 == 0) {
-                vi.setBackgroundColor(context.getResources().getColor(R.color.color_bg));
-            } else {
-                vi.setBackgroundColor(Color.WHITE);
-            }
-
-            view.setBackgroundColor(item.getColor());
-            return vi;
-
-        }
-
-    }
 }
+

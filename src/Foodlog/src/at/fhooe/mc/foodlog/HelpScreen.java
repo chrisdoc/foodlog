@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by ch on 5/22/13.
+ * A HelpScreen to explain all the functionalities of the App
  */
 public class HelpScreen extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Set the layout for the Activity
         setContentView(R.layout.help_screen);
     }
 }

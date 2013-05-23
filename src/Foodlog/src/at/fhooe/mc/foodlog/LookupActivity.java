@@ -34,6 +34,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LookupActivity extends FragmentActivity {
     private static final int SCAN_REQUEST_CODE = 1337;
@@ -116,7 +117,6 @@ public class LookupActivity extends FragmentActivity {
             }
         });
 
-        search("apfel");
     }
 
     @Override
@@ -127,9 +127,14 @@ public class LookupActivity extends FragmentActivity {
         diarySource.close();
     }
 
+    /**
+     * Starts the Barcode Scanner App to Scan a Product
+     */
     private void scanProduct() {
+        //we used the scandit library previously
       //  startActivityForResult(new Intent(LookupActivity.this,
      //           ScanditSDKSampleBarcodeActivity.class), SCAN_REQUEST_CODE);
+        //invoke the barcode scanner app to scan a barcode
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.initiateScan();
 
@@ -141,23 +146,29 @@ public class LookupActivity extends FragmentActivity {
         return data;
     }
 
+    /**
+     * Search for an product by its name or a barcode number
+     * @param text the product name or barcode
+     */
     protected void search(CharSequence text) {
+        //adds the searched name to the database for an autocompletion list
         datasource.createPreviouslySearched(text.toString());
         previouslySearched = new ArrayList<String>(
                 datasource.getAllPreviouslySearched());
         previouslyAdapter.notifyDataSetChanged();
+        //Executes a new backgroud worker
         new DownloadWebPageTask(this).execute(text.toString());
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult != null) {
-            // handle scan result
 
+        if (scanResult != null) {//intent result from the barcode scanner app
+            // handle scan result
             search(scanResult.getContents());
         }
-        else if (requestCode == SCAN_REQUEST_CODE) {
+        else if (requestCode == SCAN_REQUEST_CODE) {//intent result from the scandit app
             if (resultCode == RESULT_OK) {
                 String ean = intent.getStringExtra("EAN");
                 search(ean);
@@ -167,10 +178,23 @@ public class LookupActivity extends FragmentActivity {
         }
     }
 
+    /**
+     * An AsyncTask to communicate with the FDDB Api
+     */
     private class DownloadWebPageTask extends AsyncTask<String, Void, String> {
+        /**
+         * Context of the invoked Activity
+         */
         private Context context;
+        /**
+         * Dialog which indicates an ongoing progress
+         */
         private ProgressDialog dialog;
 
+        /**
+         * Instantiate a new DownloadWebPageTaskt
+         * @param _context the context of the Activity
+         */
         public DownloadWebPageTask(Context _context) {
             context = _context;
             dialog = new ProgressDialog(_context, ProgressDialog.STYLE_SPINNER);
@@ -180,14 +204,26 @@ public class LookupActivity extends FragmentActivity {
         protected String doInBackground(String... searchs) {
             for (String search : searchs) {
                 DefaultHttpClient client = new DefaultHttpClient();
-                String service = String
-                        .format("http://fddb.info/api/v8/search/item.xml?apikey=%s&lang=de&q=%s",
-                                getString(R.string.api_key), search);
-                // Log.d("kieslich", service);
+                //receives the current language of the user
+                String language=Locale.getDefault().getLanguage();
+                String service="";
+                if(language.equalsIgnoreCase("de")){
+                    service = String
+                            .format("http://fddb.info/api/v8/search/item.xml?apikey=%s&lang=de&q=%s",
+                                    getString(R.string.api_key), search);
+                }
+                else{
+                    service = String
+                            .format("http://fddb.info/api/v8/search/item.xml?apikey=%s&lang=en&q=%s",
+                                    getString(R.string.api_key), search);
+                }
+
+                Log.d("kieslich", service);
 
                 URL url;
                 try {
                     url = new URL(service);
+                    //Opens a http connection to the fddb server
                     HttpURLConnection urlConnection = (HttpURLConnection) url
                             .openConnection();
                     urlConnection.setConnectTimeout(5000);
@@ -197,27 +233,29 @@ public class LookupActivity extends FragmentActivity {
                             new InputStreamReader(in, "iso-8859-1"));
                     StringBuilder total = new StringBuilder();
                     String line;
+                    //receive the respons
                     while ((line = reader.readLine()) != null) {
                         total.append(line);
                     }
                     urlConnection.disconnect();
                     return total.toString();
                 } catch (MalformedURLException e1) {
-                    // TODO Auto-generated catch block
+
                     e1.printStackTrace();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
+
                     e.printStackTrace();
                 }
 
             }
+            //return an empty string if the request had an error
             return "";
         }
 
         @Override
         protected void onPreExecute() {
-            // TODO Auto-generated method stub
             super.onPreExecute();
+            //Show a dialog which indicates the progress
             dialog.setTitle("Searching");
             dialog.setMessage("Searching food database");
             dialog.show();
@@ -225,16 +263,21 @@ public class LookupActivity extends FragmentActivity {
 
         @Override
         protected void onPostExecute(String result) {
+            //invoke the handler to process the xml
             handleXMLModel(result);
             dialog.dismiss();
         }
     }
 
+    /**
+     *
+     * @param xml
+     */
     private void handleXMLModel(String xml) {
-
+        //show an alert dialog if the response is empty
         if (xml.isEmpty()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Es wurde kein Produkt gefunden")
+            builder.setMessage(getString(R.string.no_product_found))
                     .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
@@ -245,6 +288,7 @@ public class LookupActivity extends FragmentActivity {
             builder.show();
             return;
         }
+        /*Store the response as an textfile for debugging
 
         String filename = "filename.txt";
         File file = new File(Environment.getExternalStorageDirectory(),
@@ -260,8 +304,9 @@ public class LookupActivity extends FragmentActivity {
             // handle exception
         } catch (IOException e) {
             // handle exception
-        }
+        }*/
 
+        //Deserialize the XML
         Serializer serializer = new Persister();
 
         SearchResult result = null;
@@ -276,6 +321,7 @@ public class LookupActivity extends FragmentActivity {
         for (Item item : result.getItems()) {
             diarySource.createFoodEntry(item);
         }
+        //Show the details view if only one product has been found
         if (result.getItems().size() == 1) {
             Item item = result.getItems().get(0);
             Intent intent = new Intent(getApplicationContext(),
@@ -284,6 +330,7 @@ public class LookupActivity extends FragmentActivity {
             startActivityForResult(intent, 0);
             return;
         }
+        //Clear previously searched items
         if (result != null) {
             searchResults.clear();
             searchResults.addAll(result.getItems());

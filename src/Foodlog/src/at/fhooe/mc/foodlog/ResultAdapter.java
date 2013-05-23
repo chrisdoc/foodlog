@@ -13,14 +13,38 @@ import com.fedorvlasov.lazylist.ImageLoader;
 
 import java.util.ArrayList;
 
+/**
+ * An Adapter which is responsible for displaying and storing of results.
+ * This adapter is used to show search results
+ */
 public class ResultAdapter extends ArrayAdapter<Item> {
-    Context context;
-    int layoutResourceId;
-    ArrayList<Item> data = null;
-
+    /**
+     * Context of the invoked Activity
+     */
+    private Context context;
+    /**
+     * Resourceid of the layout
+     */
+    private int layoutResourceId;
+    /**
+     * An ArrayList which stores all results
+     */
+    private ArrayList<Item> data = null;
+    /**
+     * A LayoutInflater to instantiate the layout
+     */
     private static LayoutInflater inflater = null;
+    /**
+     * A ImageLoader which is used to load the displayed images in the background
+     */
     public ImageLoader imageLoader;
 
+    /**
+     * Instantiate a new ResultAdapter for a Listview
+     * @param context Context of the invoked Activity
+     * @param layoutResourceId The id of the used layout
+     * @param data An ArrayList with search results
+     */
     public ResultAdapter(Context context, int layoutResourceId,
                          ArrayList<Item> data) {
         super(context, layoutResourceId, data);
@@ -35,23 +59,26 @@ public class ResultAdapter extends ArrayAdapter<Item> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        //	LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        //	instantiate a new view if the vi hasn't been instantiated yet
         if (convertView == null)
             vi = inflater.inflate(R.layout.result_row, null);
 
-        TextView title = (TextView) vi.findViewById(R.id.result_row_title); // title
+        //gets the views from the layout
+        TextView title = (TextView) vi.findViewById(R.id.result_row_title);
         TextView subtitle = (TextView) vi
-                .findViewById(R.id.result_row_subtitle); // artist name
+                .findViewById(R.id.result_row_subtitle);
         ImageView thumb_image = (ImageView) vi
-                .findViewById(R.id.result_row_image); // thumb image
+                .findViewById(R.id.result_row_image);
 
         Item item = data.get(position);
+        //loads the thumbnail image
         imageLoader.DisplayImage(item.getThumbsrc(), thumb_image);
+
         // Setting all values in listview
         title.setText(item.getDescription().getName());
         subtitle.setText(item.getDescription().getGroup());
 
-
+        //alternating background color
         if (position % 2 == 0) {
             vi.setBackgroundColor(context.getResources().getColor(R.color.color_bg));
         } else {

@@ -101,7 +101,7 @@ public class SettingsActivity extends PreferenceActivity implements
 
         Editor editor = getSharedPreferences(getString(R.string.shared_pref),MODE_PRIVATE).edit();
         editor.putInt(getString(R.string.kcal_pref_key), kcal);
-        editor.putString(getString(R.string.daily_kcal_pref_key), String.valueOf(kcal));
+        editor.putInt(getString(R.string.daily_kcal_pref_key),kcal);
         editor.apply();
         //Log.d("kieslich", "saved kcal +" + editor.commit());
         daily.setText(String.valueOf(kcal));

@@ -5,6 +5,9 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
+/**
+ * A Container Class which stores food description is used by the XML Persister
+ */
 @Root(strict = false)
 public class FoodDescription implements Serializable {
     /**

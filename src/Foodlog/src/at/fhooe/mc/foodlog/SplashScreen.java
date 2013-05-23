@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * A SplashScreen which is shown when the app stars
+ */
 public class SplashScreen extends Activity {
 
     // used to know if the back button was pressed in the splash screen activity and avoid opening the next activity

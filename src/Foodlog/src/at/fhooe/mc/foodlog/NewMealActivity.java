@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
+/**
+ * This Activity is used as an further improvement for the APP
+ */
 public class NewMealActivity extends Activity {
 
     @Override

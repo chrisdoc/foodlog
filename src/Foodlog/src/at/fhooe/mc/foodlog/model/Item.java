@@ -5,6 +5,9 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
+/**
+ * A Container class which stores food items
+ */
 @Root(strict = false)
 public class Item implements Serializable {
     /**
@@ -97,14 +100,4 @@ public class Item implements Serializable {
         return getData().getAmount_measuring_system()
                 .replaceAll(".*\\(", "").replaceAll("\\).*", "");
     }
-    /*<id>123</id>
-    <markedfordeletion>0</markedfordeletion>
-	<thumbsrc><![CDATA[http://fddb.info/static/db/108/GAZ1N93B7WDD5NPJQB1DRHP9_205x136.jpg]]></thumbsrc>
-	<foodrank>6.9051</foodrank>
-	<ratings_num>6</ratings_num>
-	<ratings_avg_perc>83</ratings_avg_perc>
-	<producerid>6</producerid>
-	<groupid>29</groupid>
-	<productcode_ean><![CDATA[]]></productcode_ean>
-	<datasource>1</datasource>*/
 }

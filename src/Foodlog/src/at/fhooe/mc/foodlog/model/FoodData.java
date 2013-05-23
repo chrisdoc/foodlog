@@ -5,11 +5,12 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
+/**
+ * A container class which is used by the XML Persister
+ */
 @Root(strict = false)
 public class FoodData implements Serializable {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = -7437834316025041636L;
     @Element(required = false)
     int amount;
@@ -72,21 +73,6 @@ public class FoodData implements Serializable {
         sb.append(kcal);
         return sb.toString();
     }
-    /*<v_c_mg></v_c_mg>
-    <v_d_mg></v_d_mg>
-	<v_e_mg>0.58</v_e_mg>
-	<m_eisen_mg>0.7400</m_eisen_mg>
-	<m_calcium_mg>60.00</m_calcium_mg>
-	<m_magnesium_mg>25.00</m_magnesium_mg>
-	<m_natrium_mg>540.00</m_natrium_mg>
-	<m_zink_mg>0.66</m_zink_mg>
-	<m_kupfer_mg>0.220000</m_kupfer_mg>
-	<m_schwefel_mg></m_schwefel_mg>
-	<m_mangan_mg>0.6</m_mangan_mg>
-	<m_chlor_mg></m_chlor_mg>
-	<m_fluor_mg></m_fluor_mg>
-	<m_kalium_mg>130.0</m_kalium_mg>
-	<m_phosphor_mg>85</m_phosphor_mg>*/
 
     public int getAmount() {
         return amount;

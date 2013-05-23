@@ -22,28 +22,46 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * This Activity display the food diary, each day is one list item.
+ * The user can click on one item and will receive further information.
+ */
 public class HistoryActivity extends FragmentActivity {
-    private ArrayList<Diary> history;
+    /**
+     * The DiaryDataSource is a wrapper to the SQLite database which stores all the information
+     */
     private DiaryDataSource diarySource;
-    private HistoryAdapter adapter;
+    /**
+     * An adapter which is responsible for the listview
+     */
     private DiaryGroupAdapter diaryGroupAdapter;
+    /**
+     * An ArrayList which hold all the food diary groups
+     */
     private ArrayList<DiaryGroup> diaryGroups;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
 
         super.onCreate(savedInstanceState);
+        //sets the layout of the activity
         setContentView(R.layout.activity_history);
+        //create a new DiaryDataSource for this Activity
         diarySource = new DiaryDataSource(this);
         diarySource.open();
-        history = diarySource.getHistory();
+        //loads the data from the database
+
         diaryGroups = diarySource.getDiaryGroup();
-        adapter = new HistoryAdapter(this, R.layout.diary_row, history);
+
         diaryGroupAdapter = new DiaryGroupAdapter(this,
                 R.layout.dairy_group_row, diaryGroups);
         ListView historyList = (ListView) findViewById(R.id.history_list);
+        //sets the adapter of the listView
         historyList.setAdapter(diaryGroupAdapter);
+        /**
+         * OnClickListener which handles clicks on the listview
+         * Opens the DiaryDayActivity for the specified day
+         */
         historyList.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -52,8 +70,9 @@ public class HistoryActivity extends FragmentActivity {
                     DiaryGroup d = diaryGroupAdapter.getItem(position);
                     Intent intent = new Intent(getApplicationContext(),
                             DiaryDayActivity.class);
-
+                    //pass the actual diarygroup to the new intent
                     intent.putExtra("diarygroup", d);
+                    //start activity
                     startActivityForResult(intent, 0);
 
                 }
@@ -108,15 +127,8 @@ public class HistoryActivity extends FragmentActivity {
             TextView consumedView = (TextView) vi
                     .findViewById(R.id.diarygroup_consumed);
 
-
-            //View breakfastView = vi.findViewById(R.id.diarygroup_view_breakfast);
-            //View lunchView = vi.findViewById(R.id.diarygroup_view_lunch);
-            //View dinerView = vi.findViewById(R.id.diarygroup_view_diner);
-
             DiaryGroup item = data.get(position);
-            int kcalBreakfast = 0;
-            int kcalLunch = 0;
-            int kcalDiner = 0;
+
             if (item != null) {
                 int kcal = 0;
                 int tempKcal = 0;
@@ -124,17 +136,6 @@ public class HistoryActivity extends FragmentActivity {
                     tempKcal = diary.getItem().getData().getKcal()
                             * diary.getAmount()
                             / diary.getItem().getData().getAmount();
-                    switch (diary.getMealtime()) {
-                        case 0:
-                            kcalBreakfast += tempKcal;
-                            break;
-                        case 1:
-                            kcalLunch += tempKcal;
-                            break;
-                        case 2:
-                            kcalDiner += tempKcal;
-                            break;
-                    }
 
                     kcal += tempKcal;
 
@@ -152,17 +153,10 @@ public class HistoryActivity extends FragmentActivity {
                 } else {
                     consumedView.setTextColor(Color.BLACK);
                 }
-/*
-                LayoutParams params = new TableRow.LayoutParams(0, 40, (float) (kcalBreakfast) / (float) (kcal));
-                breakfastView.setLayoutParams(params);
 
-                params = new TableRow.LayoutParams(0, 40, (float) (kcalLunch) / (float) (kcal));
-                lunchView.setLayoutParams(params);
-
-                params = new TableRow.LayoutParams(0, 40, (float) (kcalDiner) / (float) (kcal));
-                dinerView.setLayoutParams(params);*/
 
             }
+            //alternating background color
             if (position % 2 == 0) {
                 vi.setBackgroundColor(context.getResources().getColor(R.color.color_bg));
             } else {
@@ -174,77 +168,4 @@ public class HistoryActivity extends FragmentActivity {
 
     }
 
-    public class HistoryAdapter extends ArrayAdapter<Diary> {
-
-        private Context context;
-        private int layoutResourceId;
-        private ArrayList<Diary> data;
-        private LayoutInflater inflater = null;
-        public ImageLoader imageLoader;
-
-        public HistoryAdapter(Context context, int layoutResourceId,
-                              ArrayList<Diary> diary) {
-            super(context, layoutResourceId, diary);
-            this.layoutResourceId = layoutResourceId;
-            this.context = context;
-            this.data = diary;
-
-            inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            imageLoader = new ImageLoader(context.getApplicationContext());
-
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            View vi = convertView;
-            // LayoutInflater inflater = ((Activity)
-            // context).getLayoutInflater();
-            if (convertView == null)
-                vi = inflater.inflate(layoutResourceId, null);
-
-            TextView name = (TextView) vi.findViewById(R.id.diary_row_title); // title
-            TextView date = (TextView) vi.findViewById(R.id.diary_row_subtitle); // artist
-            // name
-            ImageView image = (ImageView) vi.findViewById(R.id.diary_row_image); // thumb
-            // image
-
-            Diary item = data.get(position);
-            if (item != null) {
-                try {
-                    name.setText(item.getItem().getDescription().getName());
-                    date.setText(item.getDate().toGMTString());
-                } catch (Exception e) {
-                    Log.e("kieslich", e.toString());
-                }
-                imageLoader.DisplayImage(item.getItem().getThumbsrc(), image);
-                // vi.setBackgroundResource(resid)
-                int color = 0;
-                switch (item.getMealtime()) {
-                    case 0:
-                        color = Color
-                                .parseColor(getString(R.color.color_breakfast));
-                        break;
-                    case 1:
-
-                        color = Color.parseColor(getString(R.color.color_lunch));
-                        break;
-                    case 2:
-
-                        color = Color.parseColor(getString(R.color.color_diner));
-                        break;
-                    default:
-
-                        color = Color.parseColor(getString(R.color.color_df));
-                        break;
-                }
-                // Setting all values in listview
-                vi.setBackgroundColor(color);
-            }
-            return vi;
-
-        }
-
-    }
 }
