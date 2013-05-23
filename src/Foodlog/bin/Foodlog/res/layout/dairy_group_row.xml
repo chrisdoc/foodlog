@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/diarygroup_text_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="24.0sp" android:id="@id/diarygroup_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MO 31.3.2013" />
+        <TextView android:textSize="24.0sp" android:gravity="right" android:id="@id/diarygroup_kcal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0sp" android:text="1354 kcal" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="1.0" android:layout_below="@id/diarygroup_text_layout">
+        <View android:id="@id/diarygroup_view_breakfast" android:background="@color/color_breakfast" android:layout_width="2.0dip" android:layout_height="20.0dip" android:layout_weight="0.5" />
+        <View android:id="@id/diarygroup_view_lunch" android:background="@color/color_lunch" android:layout_width="5.0dip" android:layout_height="20.0dip" android:layout_weight="0.25" />
+        <View android:id="@id/diarygroup_view_diner" android:background="@color/color_diner" android:layout_width="5.0dip" android:layout_height="20.0dip" android:layout_weight="0.25" />
+    </LinearLayout>
+</RelativeLayout>

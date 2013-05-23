@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <AutoCompleteTextView android:textSize="22.0sp" android:id="@id/searchField" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/lookup_serch_field_text" android:lines="@integer/search_field_lines" android:ems="10" android:completionThreshold="2" android:layout_weight="1.0" android:layout_alignParentLeft="false" android:layout_alignParentTop="false" android:layout_alignParentRight="false" android:layout_centerInParent="false" android:layout_centerHorizontal="false" android:layout_centerVertical="true" android:inputType="text" android:imeOptions="actionSearch">
+            <requestFocus />
+        </AutoCompleteTextView>
+        <ImageButton android:id="@id/scanButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@*android:drawable/ic_menu_camera" android:layout_toRightOf="@id/searchField" android:layout_centerHorizontal="true" android:contentDescription="@string/camera_description" />
+    </LinearLayout>
+    <ListView android:id="@id/searchResults" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_fat">#ffd45354</color>
+    <color name="color_protein">#ffa9dc3a</color>
+    <color name="color_sugar">#ff2fcad8</color>
+    <color name="color_df">#ffe80c7a</color>
+    <color name="color_carb">#ff3e454c</color>
+    <color name="color_breakfast">#ffd45354</color>
+    <color name="color_lunch">#ffa9dc3a</color>
+    <color name="color_diner">#ff2fcad8</color>
+    <color name="color_brown">#ffdea96b</color>
+    <color name="color_red">#fff76966</color>
+    <color name="color_grey">#ffbcbabc</color>
+    <color name="color_yellow">#fffddb6f</color>
+    <color name="color_rosa">#fffda9c7</color>
+    <color name="color_light_green">#ff8bc79d</color>
+    <color name="color_dark_green">#ff5d7466</color>
+    <color name="color_blue">#ff5f89ab</color>
+    <color name="color_occa">#ffe39c66</color>
+</resources>

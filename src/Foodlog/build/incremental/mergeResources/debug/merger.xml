@@ -411,7 +411,7 @@ female
                 </string>
                 <string name="height_pref_summary" >Your height in centimeter
                 </string>
-                <string name="detial_has_kcal" >%1$d %2$s has %1$d kCal
+                <string name="detial_has_kcal" >%1$d %2$s has %3$d kCal
                 </string>
                 <string name="age_pref_name" >Age
                 </string>
@@ -444,6 +444,8 @@ female
                 <string name="kcal_pref_key" >kcal
                 </string>
                 <string name="help_search" >Use the search function to look up the food database for products by either textual search or by scanning the products barcode.
+                </string>
+                <string name="no_product_found" >Couldn\'t find a product
                 </string>
                 <string name="title_activity_new_meal" >New meal
                 </string>
@@ -597,6 +599,8 @@ Frau
                 <string name="api_key" >HREPF3HUMKOUKKZTAK647
                 </string>
                 <string name="pick_mealtime" >Wählen Sie eine Mahlzeit
+                </string>
+                <string name="no_product_found" >Es wurde kein Produkt gefunden
                 </string>
                 <string name="btn_new_meal" >Neues Menü
                 </string>

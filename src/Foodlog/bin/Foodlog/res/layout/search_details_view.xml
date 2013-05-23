@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_alignParentTop="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/info_detail" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:id="@id/search_detail_thumb" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_alignParentLeft="true">
+                    <ImageView android:id="@id/search_detail_image" android:layout_width="120.0dip" android:layout_height="120.0dip" android:src="@*android:drawable/btn_star" android:scaleType="centerCrop" />
+                </LinearLayout>
+                <TextView android:textSize="18.0sp" android:typeface="sans" android:textStyle="bold" android:textColor="#ff040404" android:id="@id/search_detail_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="This is a long fruit name" android:layout_toRightOf="@id/search_detail_thumb" android:layout_alignTop="@id/search_detail_thumb" /> android:typeface="sans" />
+<TextView android:textSize="16.0sp" android:textColor="#ff343434" android:id="@id/search_detail_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="Fruit subtitlee" android:layout_toRightOf="@id/search_detail_thumb" android:layout_below="@id/search_detail_title" />
+                <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ff343434" android:id="@id/search_detail_calorie" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="100 gram has 100 kCal" android:layout_toRightOf="@id/search_detail_thumb" android:layout_below="@id/search_detail_subtitle" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/nutrition_detail" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_below="@id/info_detail">
+                <WebView android:id="@id/pieWebView" android:layout_width="220.0dip" android:layout_height="220.0dip" android:layout_marginLeft="5.0dip" android:layout_alignParentLeft="true" android:layout_centerInParent="true" />
+                <ListView android:id="@id/nutrutionList" android:layout_width="220.0dip" android:layout_height="wrap_content" android:listSelector="@*android:color/transparent" android:layout_toRightOf="@id/pieWebView" android:layout_alignBottom="@id/pieWebView" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:layout_below="@id/nutrition_detail">
+                <Button android:id="@id/add_diary_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/add_food_to_diary" android:drawableLeft="@drawable/addbutton" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

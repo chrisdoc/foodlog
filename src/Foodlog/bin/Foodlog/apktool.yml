@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: Foodlog.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '14'
+packageInfo:
+  cur_package: at.fhooe.mc.foodlog
+  orig_package: at.fhooe.mc.foodlog
+compressionType: false

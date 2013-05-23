@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/diary_row_thumb" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_alignParentLeft="true">
+        <ImageView android:id="@id/diary_row_image" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+    </LinearLayout>
+    <TextView android:textSize="18.0sp" android:typeface="sans" android:textStyle="bold" android:textColor="#ff040404" android:id="@id/diary_row_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/diary_row_thumb" android:layout_alignTop="@id/diary_row_thumb" />
+    <TextView android:textSize="14.0sp" android:textColor="#ff343434" android:id="@id/diary_row_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:layout_toRightOf="@id/diary_row_thumb" android:layout_below="@id/diary_row_title" />
+</RelativeLayout>

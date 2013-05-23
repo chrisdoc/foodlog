@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Essbuch</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="gender_pref_name">Geschlecht</string>
+    <string name="gender_pref_key">gender</string>
+    <string name="kcal_pref_key">kcal</string>
+    <string name="gender_pref_summary">Ihr Geschlecht</string>
+    <string name="age_pref_name">Alter</string>
+    <string name="age_pref_key">age</string>
+    <string name="age_pref_summary">Ihr Alter</string>
+    <string name="height_pref_name">Körpergröße</string>
+    <string name="height_pref_key">height</string>
+    <string name="height_pref_summary">Ihre Körpergröße in cm</string>
+    <string name="weight_pref_name">Gewicht</string>
+    <string name="weight_pref_key">weight</string>
+    <string name="weight_pref_summary">Ihr Gewicht in kg</string>
+    <string name="lookup_serch_field_text">Search</string>
+    <string name="api_key">HREPF3HUMKOUKKZTAK647</string>
+    <string name="camera_description">Barcode scanner</string>
+    <string name="pick_mealtime">Wählen Sie eine Mahlzeit</string>
+    <string name="shared_pref">shared_pref</string>
+    <string name="btn_lookup">Suche</string>
+    <string name="btn_new_meal">Neues Menü</string>
+    <string name="btn_history">Verlauf</string>
+    <string name="btn_settings">Einstellungen</string>
+    <string name="add_food_to_diary">zum Tagebuch hinzufügen</string>
+    <string name="title_activity_new_meal">neues Menü</string>
+    <string name="add_food_to_meal">Zutat hinzufügen</string>
+    <string name="save_meal">Menü speichern</string>
+    <string name="breakfast">Frühstück</string>
+    <string name="lunch">Mittags</string>
+    <string name="diner">Abends</string>
+</resources>

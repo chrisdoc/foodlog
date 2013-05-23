@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">foodLog</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="blah" />
+    <string name="gender_pref_name">Gender</string>
+    <string name="gender_pref_key">gender</string>
+    <string name="kcal_pref_key">kcal</string>
+    <string name="gender_pref_summary">Your gender</string>
+    <string name="age_pref_name">Age</string>
+    <string name="age_pref_key">age</string>
+    <string name="age_pref_summary">Your age in years</string>
+    <string name="height_pref_name">Height</string>
+    <string name="height_pref_key">height</string>
+    <string name="height_pref_summary">Your height in centimeter</string>
+    <string name="weight_pref_name">Weight</string>
+    <string name="weight_pref_key">weight</string>
+    <string name="weight_pref_summary">Your weight in kilograms</string>
+    <string name="lookup_serch_field_text">Search</string>
+    <string name="api_key">HREPF3HUMKOUKKZTAK647</string>
+    <string name="camera_description">Barcode scanner</string>
+    <string name="pick_mealtime">Pick a mealtime</string>
+    <string name="shared_pref">shared_pref</string>
+    <string name="btn_lookup">Lookup</string>
+    <string name="btn_new_meal">New Meal</string>
+    <string name="btn_history">History</string>
+    <string name="btn_settings">Settings</string>
+    <string name="add_food_to_diary">add to diary</string>
+    <string name="title_activity_new_meal">New meal</string>
+    <string name="add_food_to_meal">add ingredient to meal</string>
+    <string name="save_meal">save meal</string>
+    <string name="breakfast">breakfast</string>
+    <string name="lunch">lunch</string>
+    <string name="diner">dinner</string>
+</resources>
